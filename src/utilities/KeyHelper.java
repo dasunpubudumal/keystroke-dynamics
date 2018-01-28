@@ -43,16 +43,19 @@ public class KeyHelper implements KeyListener {
     }
 
     public void setFlightTimes() {
-
-
         for (int i = 1; i < keyPressedInstances.size(); i++) {
             flightTimes.add(keyPressedInstances.get(i-1) - keyPressedInstances.get(i));
         }
-
     }
 
-    public void validate() {
 
+    /*
+     Get the flight times and calculate for some error margin.
+    */
+    public double validate(double errorMargin) {
+        double validation = 0;
+
+        return validation;
     }
 
     public void setKeyPressedInstances(ArrayList<Long> keyPressedInstances) {

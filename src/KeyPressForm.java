@@ -1,4 +1,5 @@
-import utilities.ButtonHelper;
+import utilities.LoginButtonHelper;
+import utilities.RegisterButtonHelper;
 import utilities.KeyHelper;
 
 import javax.swing.*;
@@ -14,17 +15,22 @@ public class KeyPressForm {
 
     public KeyPressForm() {
 
+        // Initialize Helpers
         KeyHelper keyHelpeRegister = new KeyHelper();
         KeyHelper keyHelperLogin = new KeyHelper();
-        ButtonHelper buttonHelper = new ButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyHelpeRegister, keyHelperLogin);
+        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyHelpeRegister, keyHelperLogin);
+        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyHelpeRegister, keyHelperLogin);
 
         // Listeners
         txtRegister.addKeyListener(keyHelpeRegister);
         txtLogin.setEnabled(false);
-        btnRegister.addActionListener(buttonHelper);
+        btnLogin.setEnabled(false);
+        btnRegister.addActionListener(registerButtonHelper);
+        btnLogin.addActionListener(loginButtonHelper);
 
     }
 
+    // Main method
     public static void main(String[] args) {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
