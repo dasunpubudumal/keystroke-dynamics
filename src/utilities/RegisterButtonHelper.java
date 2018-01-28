@@ -23,7 +23,8 @@ public class RegisterButtonHelper implements ActionListener{
         this.keyPressHelperRegister = keyPressHelperRegister;
     }
 
-    public void register() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         keyPressHelperRegister.setFlightTimes();
         System.out.println(keyPressHelperRegister.getFlightTimes());
         register.setEnabled(false);
@@ -32,10 +33,5 @@ public class RegisterButtonHelper implements ActionListener{
         login.setEnabled(true);
         loginBtn.setEnabled(true);
         login.addKeyListener(keyPressHelperLogin);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        this.register();
     }
 }

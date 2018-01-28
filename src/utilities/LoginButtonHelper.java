@@ -26,7 +26,8 @@ public class LoginButtonHelper implements ActionListener{
         this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100);
     }
 
-    public void login(){
+    @Override
+    public void actionPerformed(ActionEvent e) {
         keyPressHelperLogin.setFlightTimes();
         System.out.println(keyPressHelperLogin.getFlightTimes());
         login.setEnabled(false);
@@ -35,10 +36,5 @@ public class LoginButtonHelper implements ActionListener{
         } else {
             JOptionPane.showMessageDialog(null, "You are not authorized!");
         }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        this.login();
     }
 }

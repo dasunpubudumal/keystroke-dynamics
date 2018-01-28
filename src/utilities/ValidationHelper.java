@@ -31,7 +31,7 @@ public class ValidationHelper {
                 difference += Math.abs(Math.abs(loginFightTimes.get(i)) - Math.abs(registerFlightTimes.get(i)));
             }
 
-            System.out.println("Difference is: "  +difference);
+            System.out.println("Total difference is: " + difference);
             if(difference < errorMargin) validated = true;
         }
         return validated;
