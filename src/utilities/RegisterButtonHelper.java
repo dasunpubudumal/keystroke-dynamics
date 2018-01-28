@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class RegisterButtonHelper implements ActionListener{
 
@@ -15,8 +16,10 @@ public class RegisterButtonHelper implements ActionListener{
     private KeyPressHelper keyPressHelperLogin;
     private JTextField txtName;
     private JTextField txtNameLogin;
+    private FileHelper fileHelper;
 
     public RegisterButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin, JTextField txtName, JTextField txtNameLogin){
+        this.fileHelper = new FileHelper();
         this.register = register;
         this.login = login;
         this.registerBtn = registerBtn;
@@ -31,6 +34,14 @@ public class RegisterButtonHelper implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         keyPressHelperRegister.setFlightTimes();
         keyPressHelperRegister.setName(txtName.getText());
+
+        // Write to a file.
+        try {
+            fileHelper.write(keyPressHelperRegister.getFlightTimes().toString());
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
         System.out.println(keyPressHelperRegister.getFlightTimes());
         txtName.setEnabled(false);
         register.setEnabled(false);

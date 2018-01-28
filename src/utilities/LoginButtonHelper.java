@@ -5,6 +5,8 @@ import jdk.nashorn.internal.scripts.JO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class LoginButtonHelper implements ActionListener{
 
@@ -17,8 +19,10 @@ public class LoginButtonHelper implements ActionListener{
     private ValidationHelper validationHelper;
     private JTextField txtName;
     private JTextField txtNameLogin;
+    private FileHelper fileHelper;
 
     public LoginButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin, JTextField txtName, JTextField txtNameLogin){
+        this.fileHelper = new FileHelper();
         this.register = register;
         this.login = login;
         this.registerBtn = registerBtn;
@@ -35,6 +39,14 @@ public class LoginButtonHelper implements ActionListener{
         keyPressHelperLogin.setFlightTimes();
         keyPressHelperLogin.setName(txtNameLogin.getText());
         System.out.println(keyPressHelperLogin.getFlightTimes());
+
+        // Read from file
+        try {
+            System.out.println("Reader: " + fileHelper.read());
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+
         login.setEnabled(false);
         if(validationHelper.validate()){
             JOptionPane.showMessageDialog(null, "You are authorized!");
