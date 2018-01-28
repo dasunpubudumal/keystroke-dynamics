@@ -10,26 +10,26 @@ public class RegisterButtonHelper implements ActionListener{
     private JTextField login;
     private JButton registerBtn;
     private JButton loginBtn;
-    private KeyHelper keyHelperRegister;
-    private KeyHelper keyHelperLogin;
+    private KeyPressHelper keyPressHelperRegister;
+    private KeyPressHelper keyPressHelperLogin;
 
-    public RegisterButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyHelper keyHelperRegister, KeyHelper keyHelperLogin){
+    public RegisterButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin){
         this.register = register;
         this.login = login;
         this.registerBtn = registerBtn;
         this.loginBtn = loginBtn;
-        this.keyHelperLogin = keyHelperLogin;
-        this.keyHelperRegister = keyHelperRegister;
+        this.keyPressHelperLogin = keyPressHelperLogin;
+        this.keyPressHelperRegister = keyPressHelperRegister;
     }
 
     public void register() {
-        keyHelperRegister.setFlightTimes();
-        System.out.println(keyHelperRegister.getFlightTimes());
+        keyPressHelperRegister.setFlightTimes();
+        System.out.println(keyPressHelperRegister.getFlightTimes());
         register.setEnabled(false);
         registerBtn.setEnabled(false);
         login.setEnabled(true);
         loginBtn.setEnabled(true);
-        login.addKeyListener(keyHelperLogin);
+        login.addKeyListener(keyPressHelperLogin);
     }
 
     @Override

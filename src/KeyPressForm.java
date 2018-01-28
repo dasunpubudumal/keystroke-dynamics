@@ -1,6 +1,6 @@
 import utilities.LoginButtonHelper;
 import utilities.RegisterButtonHelper;
-import utilities.KeyHelper;
+import utilities.KeyPressHelper;
 
 import javax.swing.*;
 
@@ -16,13 +16,13 @@ public class KeyPressForm {
     public KeyPressForm() {
 
         // Initialize Helpers
-        KeyHelper keyHelpeRegister = new KeyHelper();
-        KeyHelper keyHelperLogin = new KeyHelper();
-        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyHelpeRegister, keyHelperLogin);
-        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyHelpeRegister, keyHelperLogin);
+        KeyPressHelper keyPressHelpeRegister = new KeyPressHelper();
+        KeyPressHelper keyPressHelperLogin = new KeyPressHelper();
+        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin);
+        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin);
 
         // Listeners
-        txtRegister.addKeyListener(keyHelpeRegister);
+        txtRegister.addKeyListener(keyPressHelpeRegister);
         txtLogin.setEnabled(false);
         btnLogin.setEnabled(false);
         btnRegister.addActionListener(registerButtonHelper);

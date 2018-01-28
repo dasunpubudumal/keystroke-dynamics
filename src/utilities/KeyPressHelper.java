@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class KeyHelper implements KeyListener {
+public class KeyPressHelper implements KeyListener {
 
     private ArrayList<Long> keyPressedInstances;
     private ArrayList<Long> keyReleasedInstances;
@@ -14,7 +14,7 @@ public class KeyHelper implements KeyListener {
     private ArrayList<Character> keysPressed;
     private ArrayList<Character> keysReleased;
 
-    public KeyHelper() {
+    public KeyPressHelper() {
         keyPressedInstances = new ArrayList<>();
         keyReleasedInstances = new ArrayList<>();
         keysPressed = new ArrayList<>();
@@ -46,16 +46,6 @@ public class KeyHelper implements KeyListener {
         for (int i = 1; i < keyPressedInstances.size(); i++) {
             flightTimes.add(keyPressedInstances.get(i-1) - keyPressedInstances.get(i));
         }
-    }
-
-
-    /*
-     Get the flight times and calculate for some error margin.
-    */
-    public double validate(double errorMargin) {
-        double validation = 0;
-
-        return validation;
     }
 
     public void setKeyPressedInstances(ArrayList<Long> keyPressedInstances) {

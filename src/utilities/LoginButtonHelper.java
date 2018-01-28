@@ -10,22 +10,25 @@ public class LoginButtonHelper implements ActionListener{
     private JTextField login;
     private JButton registerBtn;
     private JButton loginBtn;
-    private KeyHelper keyHelperRegister;
-    private KeyHelper keyHelperLogin;
+    private KeyPressHelper keyPressHelperRegister;
+    private KeyPressHelper keyPressHelperLogin;
+    private ValidationHelper validationHelper;
 
-    public LoginButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyHelper keyHelperRegister, KeyHelper keyHelperLogin){
+    public LoginButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin){
         this.register = register;
         this.login = login;
         this.registerBtn = registerBtn;
         this.loginBtn = loginBtn;
-        this.keyHelperLogin = keyHelperLogin;
-        this.keyHelperRegister = keyHelperRegister;
+        this.keyPressHelperLogin = keyPressHelperLogin;
+        this.keyPressHelperRegister = keyPressHelperRegister;
+        this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100);
     }
 
     public void login(){
-        keyHelperLogin.setFlightTimes();
-        System.out.println(keyHelperLogin.getFlightTimes());
+        keyPressHelperLogin.setFlightTimes();
+        System.out.println(keyPressHelperLogin.getFlightTimes());
         login.setEnabled(false);
+        System.out.println(validationHelper.validate());
     }
 
     @Override
