@@ -1,6 +1,7 @@
 package utilities;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +28,7 @@ public class RegisterButtonHelper implements ActionListener{
         System.out.println(keyPressHelperRegister.getFlightTimes());
         register.setEnabled(false);
         registerBtn.setEnabled(false);
+        login.requestFocus(true);
         login.setEnabled(true);
         loginBtn.setEnabled(true);
         login.addKeyListener(keyPressHelperLogin);

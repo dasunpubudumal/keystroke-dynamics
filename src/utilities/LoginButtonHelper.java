@@ -1,5 +1,7 @@
 package utilities;
 
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +30,11 @@ public class LoginButtonHelper implements ActionListener{
         keyPressHelperLogin.setFlightTimes();
         System.out.println(keyPressHelperLogin.getFlightTimes());
         login.setEnabled(false);
-        System.out.println(validationHelper.validate());
+        if(validationHelper.validate()){
+            JOptionPane.showMessageDialog(null, "You are authorized!");
+        } else {
+            JOptionPane.showMessageDialog(null, "You are not authorized!");
+        }
     }
 
     @Override
