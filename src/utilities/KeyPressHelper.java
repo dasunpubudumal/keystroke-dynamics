@@ -13,6 +13,7 @@ public class KeyPressHelper implements KeyListener {
     private ArrayList<Long> flightTimes;
     private ArrayList<Character> keysPressed;
     private ArrayList<Character> keysReleased;
+    private String name;
 
     public KeyPressHelper() {
         keyPressedInstances = new ArrayList<>();
@@ -20,6 +21,7 @@ public class KeyPressHelper implements KeyListener {
         keysPressed = new ArrayList<>();
         keysReleased = new ArrayList<>();
         flightTimes = new ArrayList<>();
+        name = "";
     }
 
     @Override
@@ -71,5 +73,13 @@ public class KeyPressHelper implements KeyListener {
 
     public ArrayList<Character> getKeysReleased() {
         return keysReleased;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

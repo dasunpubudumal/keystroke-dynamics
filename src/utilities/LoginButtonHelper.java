@@ -15,26 +15,36 @@ public class LoginButtonHelper implements ActionListener{
     private KeyPressHelper keyPressHelperRegister;
     private KeyPressHelper keyPressHelperLogin;
     private ValidationHelper validationHelper;
+    private JTextField txtName;
+    private JTextField txtNameLogin;
 
-    public LoginButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin){
+    public LoginButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin, JTextField txtName, JTextField txtNameLogin){
         this.register = register;
         this.login = login;
         this.registerBtn = registerBtn;
         this.loginBtn = loginBtn;
         this.keyPressHelperLogin = keyPressHelperLogin;
         this.keyPressHelperRegister = keyPressHelperRegister;
+        this.txtName = txtName;
+        this.txtNameLogin = txtNameLogin;
         this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100, keyPressHelperLogin, keyPressHelperRegister);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         keyPressHelperLogin.setFlightTimes();
+        keyPressHelperLogin.setName(txtNameLogin.getText());
         System.out.println(keyPressHelperLogin.getFlightTimes());
         login.setEnabled(false);
         if(validationHelper.validate()){
             JOptionPane.showMessageDialog(null, "You are authorized!");
+            loginBtn.setEnabled(false);
         } else {
-            JOptionPane.showMessageDialog(null, "You are not authorized!");
+            JOptionPane.showMessageDialog(null, "You are not authorized! Restart and try again.");
+            login.setEnabled(true);
+            login.setText("");
+            login.requestFocus(true);
+            login.setEnabled(false);
         }
     }
 }

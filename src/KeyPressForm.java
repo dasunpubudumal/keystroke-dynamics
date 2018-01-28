@@ -11,6 +11,10 @@ public class KeyPressForm {
     private JTextField txtLogin;
     private JButton btnLogin;
     private JButton btnRegister;
+    private JLabel lblName;
+    private JTextField txtName;
+    private JLabel lblNameLogin;
+    private JTextField txtNameLogin;
 
 
     public KeyPressForm() {
@@ -18,13 +22,14 @@ public class KeyPressForm {
         // Initialize Helpers
         KeyPressHelper keyPressHelpeRegister = new KeyPressHelper();
         KeyPressHelper keyPressHelperLogin = new KeyPressHelper();
-        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin);
-        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin);
+        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin);
+        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin);
 
         // Listeners
         txtRegister.addKeyListener(keyPressHelpeRegister);
         txtLogin.setEnabled(false);
         btnLogin.setEnabled(false);
+        txtNameLogin.setEnabled(false);
         btnRegister.addActionListener(registerButtonHelper);
         btnLogin.addActionListener(loginButtonHelper);
 
