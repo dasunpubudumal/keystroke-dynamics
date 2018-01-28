@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="875549cc-4c88-4611-b319-bd6cd15da677" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/KeyPressForm.form" afterPath="$PROJECT_DIR$/src/KeyPressForm.form" />
-      <change beforePath="$PROJECT_DIR$/src/KeyPressForm.java" afterPath="$PROJECT_DIR$/src/KeyPressForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/KeyPressHelper.java" afterPath="$PROJECT_DIR$/src/utilities/KeyPressHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/LoginButtonHelper.java" afterPath="$PROJECT_DIR$/src/utilities/LoginButtonHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/RegisterButtonHelper.java" afterPath="$PROJECT_DIR$/src/utilities/RegisterButtonHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/ValidationHelper.java" afterPath="$PROJECT_DIR$/src/utilities/ValidationHelper.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/auth-new/KeyPressForm.class" afterPath="$PROJECT_DIR$/out/production/auth-new/KeyPressForm.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,8 +64,8 @@
       <file leaf-file-name="LoginButtonHelper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utilities/LoginButtonHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+            <state relative-caret-position="290">
+              <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -340,7 +335,7 @@
       <workItem from="1517110636398" duration="34000" />
       <workItem from="1517110790986" duration="844000" />
       <workItem from="1517123662779" duration="5904000" />
-      <workItem from="1517132974175" duration="3714000" />
+      <workItem from="1517132974175" duration="3859000" />
     </task>
     <task id="LOCAL-00001" summary="login and register impl">
       <created>1517124419002</created>
@@ -377,11 +372,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517129559129</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="name added">
+      <created>1517136701675</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1517136701675</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17846000" />
+    <option name="totallyTimeSpent" value="17991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="311" width="1366" height="768" extended-state="6" />
@@ -425,7 +427,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login and register impl" />
     <MESSAGE value="validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="validation" />
+    <MESSAGE value="name added" />
+    <option name="LAST_COMMIT_MESSAGE" value="name added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -811,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/LoginButtonHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+        <state relative-caret-position="290">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding />
         </state>
       </provider>
