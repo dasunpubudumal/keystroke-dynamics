@@ -5,6 +5,8 @@ package utilities;
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class ValidationHelper {
 
@@ -12,12 +14,16 @@ public class ValidationHelper {
     private ArrayList<Long> registerFlightTimes;
     private long difference;
     private double errorMargin;
+    private KeyPressHelper keyPressHelperLogin;
+    private KeyPressHelper getKeyPressHelperRegister;
 
-    public ValidationHelper(ArrayList<Long> loginFightTimes, ArrayList<Long> registerFlightTimes, double errorMargin){
+    public ValidationHelper(ArrayList<Long> loginFightTimes, ArrayList<Long> registerFlightTimes, double errorMargin, KeyPressHelper keyPressHelperLogin, KeyPressHelper keyPressHelperRegister){
         this.loginFightTimes = loginFightTimes;
         this.registerFlightTimes = registerFlightTimes;
         this.errorMargin = errorMargin;
         this.difference = 0;
+        this.keyPressHelperLogin = keyPressHelperLogin;
+        this.getKeyPressHelperRegister = keyPressHelperRegister;
     }
 
     public boolean validate() {
@@ -26,7 +32,10 @@ public class ValidationHelper {
 
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
-        } else {
+        } else if (!keyPressHelperLogin.getKeysPressed().equals(getKeyPressHelperRegister.getKeysPressed())){
+            validated = false;
+        }
+        else {
             for (int i = 0; i < loginFightTimes.size() ; i++) {
                 difference += Math.abs(Math.abs(loginFightTimes.get(i)) - Math.abs(registerFlightTimes.get(i)));
             }

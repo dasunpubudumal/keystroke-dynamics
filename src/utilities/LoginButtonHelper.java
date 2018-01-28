@@ -23,7 +23,7 @@ public class LoginButtonHelper implements ActionListener{
         this.loginBtn = loginBtn;
         this.keyPressHelperLogin = keyPressHelperLogin;
         this.keyPressHelperRegister = keyPressHelperRegister;
-        this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100);
+        this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100, keyPressHelperLogin, keyPressHelperRegister);
     }
 
     @Override

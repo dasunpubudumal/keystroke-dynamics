@@ -64,4 +64,12 @@ public class KeyPressHelper implements KeyListener {
     public ArrayList<Long> getKeyReleasedInstances() {
         return keyReleasedInstances;
     }
+
+    public ArrayList<Character> getKeysPressed() {
+        return keysPressed;
+    }
+
+    public ArrayList<Character> getKeysReleased() {
+        return keysReleased;
+    }
 }
