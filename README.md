@@ -6,4 +6,4 @@ It will calculate the average difference in the delay of flight times between ke
 
 It will also take the _name_ which you provide into account. 
 
-*Note* This is an IntelliJ Project. 
+*Note* This is an IntelliJ Project. `.jar` file can be found in `/out/production`.
