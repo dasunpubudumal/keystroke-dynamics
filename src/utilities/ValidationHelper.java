@@ -32,8 +32,6 @@ public class ValidationHelper {
     public boolean validate() {
 
         boolean validated = false;
-//        System.out.println(keyPressHelperLogin.getName());
-//        System.out.println(getKeyPressHelperRegister.getName());
 
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
