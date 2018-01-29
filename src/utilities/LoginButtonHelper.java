@@ -40,13 +40,6 @@ public class LoginButtonHelper implements ActionListener{
         keyPressHelperLogin.setName(txtNameLogin.getText());
         System.out.println(keyPressHelperLogin.getFlightTimes());
 
-        // Read from file
-        try {
-            System.out.println("Reader: " + fileHelper.read());
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
-
         login.setEnabled(false);
         if(validationHelper.validate()){
             JOptionPane.showMessageDialog(null, "You are authorized!");

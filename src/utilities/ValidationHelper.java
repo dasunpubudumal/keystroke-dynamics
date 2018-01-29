@@ -4,6 +4,7 @@ package utilities;
  Validations for key presses will be done here.
 */
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,8 +17,10 @@ public class ValidationHelper {
     private double errorMargin;
     private KeyPressHelper keyPressHelperLogin;
     private KeyPressHelper getKeyPressHelperRegister;
+    private FileHelper fileHelper;
 
     public ValidationHelper(ArrayList<Long> loginFightTimes, ArrayList<Long> registerFlightTimes, double errorMargin, KeyPressHelper keyPressHelperLogin, KeyPressHelper keyPressHelperRegister){
+        this.fileHelper = new FileHelper();
         this.loginFightTimes = loginFightTimes;
         this.registerFlightTimes = registerFlightTimes;
         this.errorMargin = errorMargin;
@@ -29,8 +32,8 @@ public class ValidationHelper {
     public boolean validate() {
 
         boolean validated = false;
-        System.out.println(keyPressHelperLogin.getName());
-        System.out.println(getKeyPressHelperRegister.getName());
+//        System.out.println(keyPressHelperLogin.getName());
+//        System.out.println(getKeyPressHelperRegister.getName());
 
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
@@ -41,6 +44,14 @@ public class ValidationHelper {
             validated = false;
         }
         else {
+
+            try {
+                this.registerFlightTimes = fileHelper.read();
+
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
+
             for (int i = 0; i < loginFightTimes.size() ; i++) {
                 difference += Math.abs(Math.abs(loginFightTimes.get(i)) - Math.abs(registerFlightTimes.get(i)));
             }

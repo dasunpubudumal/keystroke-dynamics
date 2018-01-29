@@ -46,7 +46,7 @@ public class KeyPressHelper implements KeyListener {
 
     public void setFlightTimes() {
         for (int i = 1; i < keyPressedInstances.size(); i++) {
-            flightTimes.add(keyPressedInstances.get(i-1) - keyPressedInstances.get(i));
+            flightTimes.add(Math.abs(keyPressedInstances.get(i-1) - keyPressedInstances.get(i)));
         }
     }
 

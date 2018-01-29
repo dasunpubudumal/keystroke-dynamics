@@ -25,12 +25,11 @@ public class FileHelper {
         ar = ar.replace("[","");
         ar = ar.replace("]","");
         String[] list = ar.split(",");
-        System.out.println(Arrays.toString(list));
+//        System.out.println(Arrays.toString(list));
         tmp.addAll(Arrays.asList(list));
 
-        // This doesnt work
         for (int i = 0; i <  tmp.size(); i++) {
-            array.add(i, Long.parseLong(tmp.get(i)));
+            array.add(i, Long.parseLong(tmp.get(i).trim()));
         }
         reader.close();
         return array;
