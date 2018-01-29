@@ -11,7 +11,7 @@ public class FileHelper {
 
     public void write(String text) throws IOException {
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/registration_info.txt", false));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("registration_info.txt", false));
         writer.write(text);
         writer.close();
     }
@@ -19,13 +19,12 @@ public class FileHelper {
     public ArrayList<Long> read() throws IOException {
         ArrayList<Long> array = new ArrayList<>();
         ArrayList<String> tmp = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader("src/registration_info.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("registration_info.txt"));
         // Convert the read file into an array
         String ar = reader.readLine();
         ar = ar.replace("[","");
         ar = ar.replace("]","");
         String[] list = ar.split(",");
-//        System.out.println(Arrays.toString(list));
         tmp.addAll(Arrays.asList(list));
 
         for (int i = 0; i <  tmp.size(); i++) {
