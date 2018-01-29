@@ -37,7 +37,8 @@ public class RegisterButtonHelper implements ActionListener{
 
         // Write to a file.
         try {
-            fileHelper.write(keyPressHelperRegister.getFlightTimes().toString());
+            fileHelper.write(keyPressHelperRegister.getFlightTimes().toString(), "registration_info.txt");
+            fileHelper.write(keyPressHelperRegister.getName(), "name_info.txt");
         } catch (IOException e1) {
             e1.printStackTrace();
         }

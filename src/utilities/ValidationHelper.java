@@ -33,6 +33,12 @@ public class ValidationHelper {
 
         boolean validated = false;
 
+        try {
+            this.getKeyPressHelperRegister.setName(fileHelper.readName());
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
         } else if (!keyPressHelperLogin.getName().toString().equals(getKeyPressHelperRegister.getName().toString())) {
