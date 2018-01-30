@@ -38,4 +38,23 @@ public class FileHelper {
         String ar = reader.readLine();
         return ar;
     }
+
+    public ArrayList<Character> getKeysPressed() throws IOException {
+        ArrayList<Character> array = new ArrayList<>();
+        ArrayList<String> tmp = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader("password.txt"));
+        String ar = reader.readLine();
+        ar = ar.replace("[",  "");
+        ar = ar.replace("]","");
+        String[] list = ar.split(",");
+        tmp.addAll(Arrays.asList(list));
+
+
+        for (int i = 0; i <  tmp.size(); i++) {
+            array.add(i, tmp.get(i).trim().charAt(0));
+        }
+
+        reader.close();
+        return array;
+    }
 }

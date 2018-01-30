@@ -82,4 +82,8 @@ public class KeyPressHelper implements KeyListener {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setKeysPressed(ArrayList<Character> keysPressed) {
+        this.keysPressed = keysPressed;
+    }
 }

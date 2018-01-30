@@ -106,6 +106,25 @@
           </component>
         </children>
       </grid>
+      <grid id="a3fdd" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d9d84" class="javax.swing.JButton" binding="btnRegisterMe">
+            <constraints/>
+            <properties>
+              <text value="Register Me!"/>
+            </properties>
+          </component>
+          <component id="2a706" class="javax.swing.JButton" binding="btnLoginMe">
+            <constraints/>
+            <properties>
+              <text value="Log me in!"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

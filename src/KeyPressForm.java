@@ -3,6 +3,8 @@ import utilities.RegisterButtonHelper;
 import utilities.KeyPressHelper;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class KeyPressForm {
     private JPanel backPlane;
@@ -15,6 +17,8 @@ public class KeyPressForm {
     private JTextField txtName;
     private JLabel lblNameLogin;
     private JTextField txtNameLogin;
+    private JButton btnRegisterMe;
+    private JButton btnLoginMe;
 
 
     public KeyPressForm() {
@@ -27,12 +31,33 @@ public class KeyPressForm {
 
         // Listeners
         txtRegister.addKeyListener(keyPressHelpeRegister);
+        txtLogin.addKeyListener(keyPressHelperLogin);
         txtLogin.setEnabled(false);
         btnLogin.setEnabled(false);
+        txtName.setEnabled(false);
+        txtRegister.setEnabled(false);
+        btnRegister.setEnabled(false);
         txtNameLogin.setEnabled(false);
-        btnRegister.addActionListener(registerButtonHelper);
-        btnLogin.addActionListener(loginButtonHelper);
+        btnLogin.setEnabled(false);
 
+        btnRegisterMe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnRegister.addActionListener(registerButtonHelper);
+                txtName.setEnabled(true);
+                txtRegister.setEnabled(true);
+                btnRegister.setEnabled(true);
+            }
+        });
+        btnLoginMe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnLogin.addActionListener(loginButtonHelper);
+                txtNameLogin.setEnabled(true);
+                txtLogin.setEnabled(true);
+                btnLogin.setEnabled(true);
+            }
+        });
     }
 
     // Main method

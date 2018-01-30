@@ -19,6 +19,7 @@ public class ValidationHelper {
     private KeyPressHelper getKeyPressHelperRegister;
     private FileHelper fileHelper;
 
+
     public ValidationHelper(ArrayList<Long> loginFightTimes, ArrayList<Long> registerFlightTimes, double errorMargin, KeyPressHelper keyPressHelperLogin, KeyPressHelper keyPressHelperRegister){
         this.fileHelper = new FileHelper();
         this.loginFightTimes = loginFightTimes;
@@ -35,26 +36,27 @@ public class ValidationHelper {
 
         try {
             this.getKeyPressHelperRegister.setName(fileHelper.readName());
+            this.registerFlightTimes = fileHelper.read();
+            this.getKeyPressHelperRegister.setKeysPressed(fileHelper.getKeysPressed());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
 
+        System.out.println(keyPressHelperLogin.getKeysPressed());
+        System.out.println(getKeyPressHelperRegister.getKeysPressed());
+
+
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
+            System.out.println("ARRAY SIZES");
         } else if (!keyPressHelperLogin.getName().toString().equals(getKeyPressHelperRegister.getName().toString())) {
             System.out.println("NOT PASSED!");
             validated = false;
         } else if (!keyPressHelperLogin.getKeysPressed().equals(getKeyPressHelperRegister.getKeysPressed())){
             validated = false;
+            System.out.println("KEYS DIFFERED");
         }
         else {
-
-            try {
-                this.registerFlightTimes = fileHelper.read();
-
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
 
             for (int i = 0; i < loginFightTimes.size() ; i++) {
                 difference += Math.abs(Math.abs(loginFightTimes.get(i)) - Math.abs(registerFlightTimes.get(i)));

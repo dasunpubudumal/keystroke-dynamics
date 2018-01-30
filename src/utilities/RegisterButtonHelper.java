@@ -39,6 +39,7 @@ public class RegisterButtonHelper implements ActionListener{
         try {
             fileHelper.write(keyPressHelperRegister.getFlightTimes().toString(), "registration_info.txt");
             fileHelper.write(keyPressHelperRegister.getName(), "name_info.txt");
+            fileHelper.write(keyPressHelperRegister.getKeysPressed().toString(), "password.txt");
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -51,6 +52,6 @@ public class RegisterButtonHelper implements ActionListener{
         login.setEnabled(true);
         txtNameLogin.setEnabled(true);
         loginBtn.setEnabled(true);
-        login.addKeyListener(keyPressHelperLogin);
+//        login.addKeyListener(keyPressHelperLogin);
     }
 }
