@@ -75,6 +75,14 @@ public class KeyPressHelper implements KeyListener {
         return keysReleased;
     }
 
+    public void resetKeyPressedInstances() {
+        this.keyPressedInstances.clear();
+    }
+
+    public void resetKeysPressed() {
+        this.keysPressed.clear();
+    }
+
     public String getName() {
         return name;
     }

@@ -19,6 +19,8 @@ public class KeyPressForm {
     private JTextField txtNameLogin;
     private JButton btnRegisterMe;
     private JButton btnLoginMe;
+    private JButton btnRetry;
+    private JButton btnLoginNew;
 
 
     public KeyPressForm() {
@@ -26,8 +28,8 @@ public class KeyPressForm {
         // Initialize Helpers
         KeyPressHelper keyPressHelpeRegister = new KeyPressHelper();
         KeyPressHelper keyPressHelperLogin = new KeyPressHelper();
-        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin);
-        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin);
+        LoginButtonHelper loginButtonHelper = new LoginButtonHelper(txtRegister, txtLogin, btnRegister, btnLoginNew, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin);
+        RegisterButtonHelper registerButtonHelper = new RegisterButtonHelper(txtRegister, txtLogin, btnRegister, btnLogin, keyPressHelpeRegister, keyPressHelperLogin, txtName, txtNameLogin, loginButtonHelper);
 
         // Listeners
         txtRegister.addKeyListener(keyPressHelpeRegister);
@@ -39,6 +41,8 @@ public class KeyPressForm {
         btnRegister.setEnabled(false);
         txtNameLogin.setEnabled(false);
         btnLogin.setEnabled(false);
+        btnLogin.addActionListener(loginButtonHelper);
+        btnRetry.setEnabled(false);
 
         btnRegisterMe.addActionListener(new ActionListener() {
             @Override
@@ -47,15 +51,34 @@ public class KeyPressForm {
                 txtName.setEnabled(true);
                 txtRegister.setEnabled(true);
                 btnRegister.setEnabled(true);
+                btnRetry.setEnabled(true);
             }
         });
         btnLoginMe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnLogin.addActionListener(loginButtonHelper);
+//                btnLogin.addActionListener(loginButtonHelper);
                 txtNameLogin.setEnabled(true);
                 txtLogin.setEnabled(true);
                 btnLogin.setEnabled(true);
+                btnRetry.setEnabled(true);
+            }
+        });
+        btnRetry.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Register
+                txtName.setText("");
+                txtRegister.setText("");
+                // Login
+                txtLogin.setText("");
+                txtNameLogin.setText("");
+
+                // Clear the arrays
+                keyPressHelpeRegister.resetKeyPressedInstances();
+                keyPressHelperLogin.resetKeyPressedInstances();
+                keyPressHelpeRegister.resetKeysPressed();
+                keyPressHelperLogin.resetKeysPressed();
             }
         });
     }

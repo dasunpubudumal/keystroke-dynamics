@@ -31,7 +31,7 @@ public class LoginButtonHelper implements ActionListener{
         this.keyPressHelperRegister = keyPressHelperRegister;
         this.txtName = txtName;
         this.txtNameLogin = txtNameLogin;
-        this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 100, keyPressHelperLogin, keyPressHelperRegister);
+        this.validationHelper = new ValidationHelper(keyPressHelperLogin.getFlightTimes(), keyPressHelperRegister.getFlightTimes(), 300, keyPressHelperLogin, keyPressHelperRegister);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LoginButtonHelper implements ActionListener{
         login.setEnabled(false);
         if(validationHelper.validate()){
             JOptionPane.showMessageDialog(null, "You are authorized!");
-            loginBtn.setEnabled(false);
+//            loginBtn.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(null, "You are not authorized! Restart and try again.");
             login.setEnabled(true);
@@ -50,5 +50,6 @@ public class LoginButtonHelper implements ActionListener{
             login.requestFocus(true);
             login.setEnabled(false);
         }
+
     }
 }

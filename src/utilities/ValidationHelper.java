@@ -4,6 +4,7 @@ package utilities;
  Validations for key presses will be done here.
 */
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,13 +49,13 @@ public class ValidationHelper {
 
         if(loginFightTimes.size() != registerFlightTimes.size()){
             validated = false;
-            System.out.println("ARRAY SIZES");
+            System.out.println("ARRAY SIZES INCORRECT");;
         } else if (!keyPressHelperLogin.getName().toString().equals(getKeyPressHelperRegister.getName().toString())) {
-            System.out.println("NOT PASSED!");
+            System.out.println("INCORRECT NAMES!");
             validated = false;
         } else if (!keyPressHelperLogin.getKeysPressed().equals(getKeyPressHelperRegister.getKeysPressed())){
             validated = false;
-            System.out.println("KEYS DIFFERED");
+            System.out.println("KEYS DIFFERED!");
         }
         else {
 

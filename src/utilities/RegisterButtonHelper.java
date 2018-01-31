@@ -17,8 +17,9 @@ public class RegisterButtonHelper implements ActionListener{
     private JTextField txtName;
     private JTextField txtNameLogin;
     private FileHelper fileHelper;
+    private LoginButtonHelper loginButtonHelper;
 
-    public RegisterButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin, JTextField txtName, JTextField txtNameLogin){
+    public RegisterButtonHelper(JTextField register, JTextField login, JButton registerBtn, JButton loginBtn, KeyPressHelper keyPressHelperRegister, KeyPressHelper keyPressHelperLogin, JTextField txtName, JTextField txtNameLogin, LoginButtonHelper loginButtonHelper){
         this.fileHelper = new FileHelper();
         this.register = register;
         this.login = login;
@@ -28,6 +29,7 @@ public class RegisterButtonHelper implements ActionListener{
         this.keyPressHelperRegister = keyPressHelperRegister;
         this.txtName = txtName;
         this.txtNameLogin = txtNameLogin;
+        this.loginButtonHelper = loginButtonHelper;
     }
 
     @Override
@@ -52,6 +54,6 @@ public class RegisterButtonHelper implements ActionListener{
         login.setEnabled(true);
         txtNameLogin.setEnabled(true);
         loginBtn.setEnabled(true);
-//        login.addKeyListener(keyPressHelperLogin);
+//        loginBtn.addActionListener(loginButtonHelper);
     }
 }
